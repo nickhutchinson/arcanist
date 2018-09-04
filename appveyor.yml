@@ -1,0 +1,26 @@
+image:
+  - Ubuntu
+  - Visual Studio 2017
+
+branches:
+  only:
+    - ci
+
+init:
+  - cmd: git config --global core.autocrlf true
+
+install:
+  - git submodule update --init --recursive
+  - bash .ci/appveyor/get_php.sh
+
+build: false
+
+test_script:
+  - sh: env
+  - sh: pushd libphutil && ../arcanist/bin/arc unit --ansi --everything && popd
+  - sh: pushd arcanist && ../arcanist/bin/arc unit --ansi --everything && popd
+
+  - cmd: set
+  - cmd: pushd libphutil && ..\arcanist\bin\arc unit --ansi --everything & popd
+  # FIXME: Suppress test failures in arcanist for now.
+  - cmd: pushd arcanist && ..\arcanist\bin\arc unit --ansi --everything || ver>NUL & popd

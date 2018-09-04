@@ -1,0 +1,6 @@
+[submodule "arcanist"]
+	path = arcanist
+	url = https://github.com/nickhutchinson/arcanist
+[submodule "libphutil"]
+	path = libphutil
+	url = https://github.com/nickhutchinson/libphutil
