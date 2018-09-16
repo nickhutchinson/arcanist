@@ -1,6 +1,9 @@
 [submodule "arcanist"]
 	path = arcanist
 	url = https://github.com/nickhutchinson/arcanist
+	branch = eergilif
+
 [submodule "libphutil"]
 	path = libphutil
 	url = https://github.com/nickhutchinson/libphutil
+	branch = eergilif
